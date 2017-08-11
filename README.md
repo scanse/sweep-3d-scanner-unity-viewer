@@ -8,12 +8,14 @@ A simple unity project to view scans created by the [open source 3D scanner proj
 - Select a CSV pointcloud file, with the expected format.
 - Wait for the application to parse the file and render the points.
 - Use `Q` & `E` to adjust the vertical position of the point cloud so the camera appears to be at head height.
+- Alternatively, use `Z` & `C` to adjust the scale of the point cloud so it appears as a tiny model you can view like a diorama.
 - To exit the application, simply `alt-tab` out and close the executable.
 
 ## Controls
 - `WASD`: movement
 - `Mouse`: look around
-- `Q` & `E`: adjust the vertical position of the point cloud up and down
+- `Q` & `E`: adjust the vertical position of the point cloud
+- `Z` & `C`: adjust the scale of the point cloud
 
 ## Compatible file format
 Only files with the expected format will open correctly. Attempting to open unexpected files will terminate the unity application. The application expects `.csv` files downloaded from the `sweep-3d-scanner` or exported from the `Sweep Visualizer` desktop application. 

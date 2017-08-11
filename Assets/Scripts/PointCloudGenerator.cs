@@ -13,6 +13,7 @@ public class PointCloudGenerator : MonoBehaviour
     public Material pointCloudMaterial;
     // controls how quickly the sensitivity when adjusting the vertical position of the point cloud
     public float verticalAdjustSpeed = 0.01f;
+    public float scaleAdjustSpeed = 0.01f;
     // maintained reference to the generated children (point cloud objects)
     private GameObject[] pointClouds;
     // the points read from the data file
@@ -95,14 +96,23 @@ public class PointCloudGenerator : MonoBehaviour
         // Check for positive vertical adjustment
         if (Input.GetKey(KeyCode.E))
         {
-            //here you put the code of your event
             transform.Translate(new Vector3(0.0f, verticalAdjustSpeed, 0.0f));
         }
         // Check for negative vertical adjustment
         if (Input.GetKey(KeyCode.Q))
         {
-            //here you put the code of your event
             transform.Translate(new Vector3(0.0f, -verticalAdjustSpeed, 0.0f));
+        }
+        // Check for positive scale adjustment
+        if (Input.GetKey(KeyCode.Z))
+        {
+            transform.localScale += new Vector3(scaleAdjustSpeed, scaleAdjustSpeed, scaleAdjustSpeed);
+        }
+        // Check for negative scale adjustment
+        if (Input.GetKey(KeyCode.C))
+        {
+            if (transform.localScale.x > scaleAdjustSpeed * 2)
+                transform.localScale -= new Vector3(scaleAdjustSpeed, scaleAdjustSpeed, scaleAdjustSpeed);
         }
     }
 }
