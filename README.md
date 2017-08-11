@@ -6,9 +6,11 @@ Main Viewer                |  Miniature Viewer
 :-------------------------:|:-------------------------:
 ![main viewer](https://s3.amazonaws.com/scanse/3D-Scanner/docs/imgs/viewer/main_viewer.PNG)  |  ![miniature viewer](https://s3.amazonaws.com/scanse/3D-Scanner/docs/imgs/viewer/miniature_viewer.PNG)
 
+## Download
+- You can clone this repository and open the cloned directory as a project in Unity.
+- Alternatively, you can download the executables from the latest release here: [https://github.com/scanse/sweep-3d-scanner-unity-viewer/releases](https://github.com/scanse/sweep-3d-scanner-unity-viewer/releases).
 
 ## Using the Viewers
-
 - Run the executable `Point_Cloud_Viewer.exe` or `Miniature_Point_Cloud_Viewer.exe`.
 - Once the app loads, a file browser should open automatically. 
 - Select a CSV pointcloud file, with the expected format.
