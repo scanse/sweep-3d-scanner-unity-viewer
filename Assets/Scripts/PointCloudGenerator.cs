@@ -11,9 +11,7 @@ using SFB;
 public class PointCloudGenerator : MonoBehaviour
 {
     public Material pointCloudMaterial;
-    // controls how quickly the sensitivity when adjusting the vertical position of the point cloud
-    public float verticalAdjustSpeed = 0.01f;
-    public float scaleAdjustSpeed = 0.005f;
+
     // maintained reference to the generated children (point cloud objects)
     private GameObject[] pointClouds;
     // the points read from the data file
@@ -83,36 +81,7 @@ public class PointCloudGenerator : MonoBehaviour
             obj.GetComponent<MeshRenderer>().material = pointCloudMaterial;
             pointClouds[i] = obj;
         }
-    }
-    // Use this for initialization
-    void Start()
-    {
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        // Check for positive vertical adjustment
-        if (Input.GetKey(KeyCode.E))
-        {
-            transform.Translate(new Vector3(0.0f, verticalAdjustSpeed, 0.0f));
-        }
-        // Check for negative vertical adjustment
-        if (Input.GetKey(KeyCode.Q))
-        {
-            transform.Translate(new Vector3(0.0f, -verticalAdjustSpeed, 0.0f));
-        }
-        // Check for positive scale adjustment
-        if (Input.GetKey(KeyCode.Z))
-        {
-            transform.localScale += new Vector3(scaleAdjustSpeed, scaleAdjustSpeed, scaleAdjustSpeed);
-        }
-        // Check for negative scale adjustment
-        if (Input.GetKey(KeyCode.C))
-        {
-            if (transform.localScale.x > scaleAdjustSpeed * 4)
-                transform.localScale -= new Vector3(scaleAdjustSpeed, scaleAdjustSpeed, scaleAdjustSpeed);
-        }
-    }
 }

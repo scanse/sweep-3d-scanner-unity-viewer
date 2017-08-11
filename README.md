@@ -1,21 +1,22 @@
 # sweep-3d-scanner-unity-viewer
 A simple unity project to view scans created by the [open source 3D scanner project](https://github.com/scanse/sweep-3d-scanner) in first person, including VR support.
 
-## Using the Viewer
+## Using the Viewer or Miniature Viewer
 
-- Run the executable `Point_Cloud_Viewer.exe`.
+- Run the executable `Point_Cloud_Viewer.exe` or `Miniature_Point_Cloud_Viewer.exe`.
 - Once the app loads, a file browser should open automatically. 
 - Select a CSV pointcloud file, with the expected format.
 - Wait for the application to parse the file and render the points.
-- Use `Q` & `E` to adjust the vertical position of the point cloud so the camera appears to be at head height.
-- Alternatively, use `Z` & `C` to adjust the scale of the point cloud so it appears as a tiny model you can view like a diorama.
+- For the main viewer, use `Q` & `E` to adjust the vertical position of the point cloud so the camera appears to be at head height, and the floor in the scane matches the ground plane.
+- For the miniature viewer, experiment with the transform controls listed below to view the diorama.
 - To exit the application, simply `alt-tab` out and close the executable.
 
 ## Controls
 - `WASD`: movement
 - `Mouse`: look around
 - `Q` & `E`: adjust the vertical position of the point cloud
-- `Z` & `C`: adjust the scale of the point cloud
+- `Z` & `C`: adjust the scale of the point cloud (only available in miniature scene)
+- `R` & `T`: adjust the yaw rotation of the point cloud (only available in miniature scene)
 
 ## Compatible file format
 Only files with the expected format will open correctly. Attempting to open unexpected files will terminate the unity application. The application expects `.csv` files downloaded from the `sweep-3d-scanner` or exported from the `Sweep Visualizer` desktop application. 
@@ -39,6 +40,12 @@ SCAN_INDEX,X,Y,Z,SIGNAL_STRENGTH
 - `StandaloneFileBrowser`: enables using the native OS dialog to select a csv file, src available [here](https://github.com/gkngkc/UnityStandaloneFileBrowser).
 
 ### Included Assets
+- `Scenes/main`: 
+  - The main 1 to 1 scale point cloud viewer, best for walking around the scan.
+  - Point cloud can be raised or lowered to match the floor height with the ground plane.
+- `Scenes/miniature`:
+  - Shrinks the point cloud into a diorama size for top down viewing. 
+  - Point cloud can be be raised, lowered, rotated and scaled.
 - `Scripts/CSVReader`: 
   - Naively parses a csv file of the expected structure into an array of `Vector4` objects. 
   - Each `Vector4` represents a point, where the first 3 elements (x,y,z) are position, and the 4th (w) is normalized signal strength.
@@ -48,5 +55,7 @@ SCAN_INDEX,X,Y,Z,SIGNAL_STRENGTH
   - Since no single mesh can hold more than 65000 vertices, splits the points into multiple children each of which is a PointCloud object with a portion of the points. 
 - `Scripts/PointCloud`: 
   - Creates a mesh where each vertex is a point, and the color for each vertex is calculated by the normalized signal strength.
+- `Scripts/AdjustTransform`: 
+  - Allows the user to adjust the transform of the point cloud.
 - `Material/Shader_PointCloud`: Shader code, adapted from [here](http://www.kamend.com/2014/05/rendering-a-point-cloud-inside-unity/).
 
