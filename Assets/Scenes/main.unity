@@ -137,6 +137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointCloudMaterial: {fileID: 2100000, guid: 19d85ee906862c746b7be7fa91fd20fd, type: 2}
   verticalAdjustSpeed: 0.01
+  scaleAdjustSpeed: 0.005
 --- !u!4 &401532114
 Transform:
   m_ObjectHideFlags: 0
