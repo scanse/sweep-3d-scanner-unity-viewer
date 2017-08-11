@@ -11,6 +11,7 @@ Main Viewer                |  Miniature Viewer
 - Alternatively, you can download the executables from the latest release [here](https://github.com/scanse/sweep-3d-scanner-unity-viewer/releases).
 
 ## Using the Viewers
+### Quickstart
 - Run the executable `Point_Cloud_Viewer.exe` or `Miniature_Point_Cloud_Viewer.exe`.
 - Once the app loads, a file browser should open automatically. 
 - Select a CSV pointcloud file, with the expected format.
@@ -19,21 +20,21 @@ Main Viewer                |  Miniature Viewer
 - For the miniature viewer, experiment with the transform controls listed below to view the diorama.
 - To exit the application, simply `alt-tab` out and close the executable.
 
-## Controls
+### Controls
 - `WASD`: movement
 - `Mouse`: look around
 - `Q` & `E`: adjust the vertical position of the point cloud
 - `Z` & `C`: adjust the scale of the point cloud (only available in miniature scene)
 - `R` & `T`: adjust the yaw rotation of the point cloud (only available in miniature scene)
 
-## Notes on VR
+### Notes on VR
 - Support for VR is included.
 - Be sure the VR headset is connected and turned on.
 - After starting the application executable, select the desired scan file before putting the headset on.
 - Large scans can take a little while to load.
 - The scan will not appear until you put on the headset.
 
-## Compatible file format
+### Compatible file format
 Only files with the expected format will open correctly. Attempting to open unexpected files will terminate the unity application. The application expects `.csv` files downloaded from the `sweep-3d-scanner` or exported from the `Sweep Visualizer` desktop application. 
 
 If you want to convert custom data to make a compatible file, create a CSV file with the following format:
