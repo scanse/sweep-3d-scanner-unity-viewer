@@ -135,7 +135,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad154c30035811641a5f3e2585f5435e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fileName: house
   pointCloudMaterial: {fileID: 2100000, guid: 19d85ee906862c746b7be7fa91fd20fd, type: 2}
   adjustmentMovementSpeed: 0.05
 --- !u!4 &401532114
