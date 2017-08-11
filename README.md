@@ -8,7 +8,7 @@ Main Viewer                |  Miniature Viewer
 
 ## Download
 - You can clone this repository and open the cloned directory as a project in Unity.
-- Alternatively, you can download the executables from the latest release here: [https://github.com/scanse/sweep-3d-scanner-unity-viewer/releases](https://github.com/scanse/sweep-3d-scanner-unity-viewer/releases).
+- Alternatively, you can download the executables from the latest release [here](https://github.com/scanse/sweep-3d-scanner-unity-viewer/releases).
 
 ## Using the Viewers
 - Run the executable `Point_Cloud_Viewer.exe` or `Miniature_Point_Cloud_Viewer.exe`.
@@ -74,3 +74,10 @@ SCAN_INDEX,X,Y,Z,SIGNAL_STRENGTH
   - Allows the user to adjust the transform of the point cloud.
 - `Material/Shader_PointCloud`: Shader code, adapted from [here](http://www.kamend.com/2014/05/rendering-a-point-cloud-inside-unity/).
 
+## Contributing:
+-------------------
+There is a lot of room for improvement, and submitting a pull request is easy! 
+
+So don't hesitate to experiment and modify the code.
+
+To make the process of contributing more efficient, please review the [contribution guidelines](.github/CONTRIBUTING.md).
