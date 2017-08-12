@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 /// <summary>
-/// Creates a mesh where each vertex is a point, and the color for each vertex is proportial to its signal strength.
+/// Creates a mesh where each vertex is a point, and the color for each vertex is proportional to its signal strength.
 /// </summary>
 [RequireComponent(typeof(MeshFilter), typeof(MeshRenderer))]
 public class PointCloud : MonoBehaviour
@@ -11,11 +11,6 @@ public class PointCloud : MonoBehaviour
 
     private Mesh mesh;
     int numPoints = 0;
-
-    // Use this for initialization
-    void Start()
-    {
-    }
 
     // Creates the gameObject's mesh using the provided points and signal strength values
     public void CreateMesh(Vector3[] points, float[] normalizedSignalStrength)
