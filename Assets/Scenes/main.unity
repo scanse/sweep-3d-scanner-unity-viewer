@@ -118,6 +118,7 @@ GameObject:
   - component: {fileID: 401532114}
   - component: {fileID: 401532113}
   - component: {fileID: 401532115}
+  - component: {fileID: 401532116}
   m_Layer: 0
   m_Name: PointCloudGenerator
   m_TagString: Untagged
@@ -168,6 +169,17 @@ MonoBehaviour:
   scaleAdjustSensitivity: 0.005
   userCanAdjustYaw: 0
   yawAdjustSensitivity: 0.15
+--- !u!114 &401532116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 401532112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 869509cfaaf611f4bb3e4289fcdfee6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &433422985
 GameObject:
   m_ObjectHideFlags: 0

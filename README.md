@@ -18,7 +18,7 @@ Main Viewer                |  Miniature Viewer
 - Wait for the application to parse the file and render the points.
 - For the main viewer, use `Q` & `E` to adjust the vertical position of the point cloud so the camera appears to be at head height, and the floor in the scan matches the ground plane. Then walk around inside the scan.
 - For the miniature viewer, experiment with the transform controls listed below to view the diorama.
-- To exit the application, simply `alt-tab` out and close the executable.
+- To exit the application and close the executable, press `ESC`.
 
 ### Controls
 - `WASD`: movement
@@ -26,6 +26,7 @@ Main Viewer                |  Miniature Viewer
 - `Q` & `E`: adjust the vertical position of the point cloud
 - `Z` & `C`: adjust the scale of the point cloud (only available in miniature scene)
 - `R` & `T`: adjust the yaw rotation of the point cloud (only available in miniature scene)
+- `ESC`: exit application
 
 ### Notes on VR
 - Support for VR is included.
