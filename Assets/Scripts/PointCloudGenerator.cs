@@ -28,17 +28,36 @@ public class PointCloudGenerator : MonoBehaviour
     void Awake()
     {
         // Open a native file dialog, so the user can specify the file location
-        SFB.ExtensionFilter[] extensions = new[] { new ExtensionFilter("Point Cloud Files", "csv") };
+        SFB.ExtensionFilter[] extensions = new[] { new ExtensionFilter("Point Cloud Files", "csv", "ply") };
         string[] paths = StandaloneFileBrowser.OpenFilePanel("Open File", "", extensions, false);
         if (paths.Length < 1)
         {
-            print("Error: Please specify a CSV file.");
+            print("Error: Please specify a properly formatted CSV or binary PLY file.");
             Application.Quit();
             return;
         }
 
+        string filePath = paths[0];
+        string[] parts = filePath.Split('.');
+        string extension = parts[parts.Length - 1];
+
         // Read the points from the file
-        data = CSVReader.ReadPoints(paths[0]);
+        switch (extension)
+        {
+            case "csv":
+            case "CSV":
+                data = CSVReader.ReadPoints(filePath);
+                break;
+            case "ply":
+            case "PLY":
+                data = PLYReader.ReadPoints(filePath);
+                break;
+            default:
+                print("Error: Please specify a properly formatted CSV or binary PLY file.");
+                Application.Quit();
+                return;
+        }
+
         numPoints = data.Count;
         if (numPoints <= 0)
         {
@@ -68,7 +87,7 @@ public class PointCloudGenerator : MonoBehaviour
             for (int j = 0; j < numPointsPerCloud; j++)
             {
                 // normalzied signal strength stored in the 4th component of the vector
-                normalizedSignalStrength[j] = data[offset + j].w;
+                normalizedSignalStrength[j] = data[offset + j].w * 0.3f;
 
                 // position stored in the first 3 elements of the vector (conversion handled by implicit cast)
                 positions[j] = data[offset + j];

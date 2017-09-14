@@ -26,6 +26,11 @@ public class CSVReader
             if (numPoints <= 0)
                 return null;
 
+            // check if the .csv contains a column for scan index
+            string header = lines[0];
+            int offset = header.Contains("SCAN_INDEX") ? 1 : 0;
+            bool bContainsSigStrength = header.Contains("SIGNAL_STRENGTH");
+
             List<Vector4> points = new List<Vector4>();
             float x, y, z, normalizedSignalStrength;
             for (int i = 0; i < numPoints; i++)
@@ -35,11 +40,12 @@ public class CSVReader
 
                 // Read the position
                 // convert from the centimeters to meters, and flip z and y (RHS to LHS)
-                x = 0.01f * float.Parse(row[1]);
-                z = 0.01f * float.Parse(row[2]);
-                y = 0.01f * float.Parse(row[3]);
+                x = 0.01f * float.Parse(row[0 + offset]);
+                z = 0.01f * float.Parse(row[1 + offset]);
+                y = 0.01f * float.Parse(row[2 + offset]);
+
                 // Read the signal strength and normalize it. ie: [0 : 254] => [0.0f : 1.0f]
-                normalizedSignalStrength = float.Parse(row[4]) / 254.0f;
+                normalizedSignalStrength = bContainsSigStrength ? (float.Parse(row[3 + offset]) / 254.0f) : 0.75f;
 
                 // Package the position and signal strength into a single 4 element vector
                 points.Add(new Vector4(x, y, z, normalizedSignalStrength));
